@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mkaps-navy: #071a2f;
+  --color-mkaps-navy-light: #0b2746;
+  --color-mkaps-gold: #d7a536;
+  --color-mkaps-gold-light: #e2b64b;
+  --color-mkaps-white: #ffffff;
+  --color-mkaps-off-white: #f7f7f4;
+  --color-mkaps-muted: #6b7280;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: Inter, Manrope, ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-mkaps-white);
+  background: var(--color-mkaps-navy);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; scroll-behavior: smooth; background: var(--color-mkaps-navy); }
+body { min-width: 320px; min-height: 100vh; margin: 0; }
+a, button { -webkit-tap-highlight-color: transparent; }
+button, a { cursor: pointer; }
+img { display: block; max-width: 100%; }
+::selection { color: var(--color-mkaps-navy); background: var(--color-mkaps-gold-light); }
+
+.button-gold, .button-navy {
+  min-height: 3rem;
+  align-items: center;
+  gap: .65rem;
+  border-radius: .2rem;
+  padding: .8rem 1.25rem;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: color .2s ease, background-color .2s ease, transform .2s ease;
+}
+
+.button-gold { color: var(--color-mkaps-navy); background: var(--color-mkaps-gold); }
+.button-gold:hover { background: var(--color-mkaps-gold-light); transform: translateY(-1px); }
+.button-navy { color: white; background: var(--color-mkaps-navy); }
+.button-navy:hover { background: var(--color-mkaps-navy-light); transform: translateY(-1px); }
+.button-gold:focus-visible, .button-navy:focus-visible { outline: 2px solid var(--color-mkaps-gold); outline-offset: 4px; }
+
+.nav-link {
+  position: relative;
+  padding-block: 1rem;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .025em;
+  color: rgba(255,255,255,.85);
+  text-transform: uppercase;
+  transition: color .2s ease;
+}
+.nav-link:hover, .nav-link.active { color: white; }
+.nav-link::after { content: ''; position: absolute; right: 0; bottom: .55rem; left: 0; height: 2px; background: var(--color-mkaps-gold); transform: scaleX(0); transition: transform .2s ease; }
+.nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
+
+.countdown-panel {
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: .45rem;
+  padding: 1.25rem 1rem;
+  background: rgba(4, 13, 25, .66);
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+  backdrop-filter: blur(14px);
+}
+
+.eyebrow { font-size: .7rem; font-weight: 800; letter-spacing: .12em; color: var(--color-mkaps-gold); text-transform: uppercase; }
+.section-title { font-family: var(--font-display); font-size: clamp(2rem, 3.4vw, 3.25rem); font-weight: 600; line-height: .98; letter-spacing: -.02em; }
+
+@media (max-width: 639px) {
+  .countdown-panel { padding-inline: .5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
