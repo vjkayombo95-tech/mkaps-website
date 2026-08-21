@@ -1,4 +1,5 @@
 import { Camera, MapPin, MessageCircle, PlaySquare } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { Logo } from './Logo'
 
 const columns = [
@@ -22,6 +23,8 @@ export function Footer() {
               <h2 className="text-xs font-bold uppercase tracking-[0.18em] text-mkaps-gold">{column.title}</h2>
               <ul className="mt-5 space-y-3">
                 {column.links.map((link) => <li key={link}><a className="text-sm text-white/65 transition hover:text-white" href={`#${link.toLowerCase().replaceAll(' ', '-')}`}>{link}</a></li>)}
+                {column.title === 'Participate' && <li><Link className="text-sm text-white/65 transition hover:text-white" to="/portal">Participant Portal</Link></li>}
+                {column.title === 'Support' && <li><Link className="text-sm text-white/65 transition hover:text-white" to="/admin">Admin Portal</Link></li>}
               </ul>
             </div>
           ))}
